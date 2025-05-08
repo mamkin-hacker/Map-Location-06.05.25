@@ -19,28 +19,19 @@ int main()
 	{
 		for (int j = 0; j < amountStars; j++)
 		{
-			array[i][j]= '*';
-			/* Построчный вывод элементов массива
-			if (j == (amountStars-1)) 
-			{
-				cout << array[i][j] << endl;
-			}
-			else
-			{
-				cout << array[i][j];
-			}
-			*/
+			array[i][j] = '*';
+			
 			if ((i == (x - 4)) && ((j != 0) && (j != (amountStars - 1))))
 			{
 				array[i][j] = ' ';
 			}
-			
+
 			if (((i == (x - 3)) || (i == (x + 3))) && ((j == (x - 4)) || (j == (x + 3))))
 			{
 				array[i][j] = ' ';
 			}
 
-			if (((i == (x-2)) || (i == (x + 2))) && ((j == (x - 4)) || (j == (x + 3)) || (j == x + 1) || (j == x) || (j == (x - 1)) || (j == (x - 2))))
+			if (((i == (x - 2)) || (i == (x + 2))) && ((j == (x - 4)) || (j == (x + 3)) || (j == x + 1) || (j == x) || (j == (x - 1)) || (j == (x - 2))))
 			{
 				array[i][j] = ' ';
 			}
@@ -69,47 +60,4 @@ int main()
 			}
 		}
 	}
-	/* Заполняем массив "звездами" 0 строку и выводим в консоль
-
-	for (int i = 0; i < amountStars; i++)
-	{
-		for (int j = 0; j < amountStars; j++)
-		{
-			if ((i == 0) || (i == (amountStars-1)))
-			{
-				array[i][j] = '*';
-			}
-
-			if (j == 0) //|| (j == (amountStars - 1)))
-			{
-				array[0][j] = '*';
-				array[amountStars - 1][j] = '*';
-			}
-
-			if (i == 2)
-			{
-				array[i][j] = '*';
-				array[i][1] = ' ';
-				array[i][amountStars - 2] = ' ';
-			}
-			if (i == 3)
-			{
-				array[i][j] = '*';
-				array[i][1] = ' ';
-				array[i][amountStars - 2] = ' ';
-			}
-		}
-	}
-
-		for (int i = 0; i < amountStars; i++)
-		{
-			for (int j = 0; j < amountStars; j++)
-			{
-				cout << array[i][j];
-			}
-		}
-	*/
-
-		Sleep(30);
-	//	system("cls");
 }
