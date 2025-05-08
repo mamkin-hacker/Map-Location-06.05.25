@@ -20,6 +20,7 @@ int main()
 		for (int j = 0; j < amountStars; j++)
 		{
 			array[i][j]= '*';
+			/* Построчный вывод элементов массива
 			if (j == (amountStars-1)) 
 			{
 				cout << array[i][j] << endl;
@@ -28,8 +29,8 @@ int main()
 			{
 				cout << array[i][j];
 			}
-
-			if ((i == (x - 4)) && ((j != 0) && (j != (x + 4))))
+			*/
+			if ((i == (x - 4)) && ((j != 0) && (j != (amountStars - 1))))
 			{
 				array[i][j] = ' ';
 			}
@@ -39,7 +40,7 @@ int main()
 				array[i][j] = ' ';
 			}
 
-			if (((i == 3) || (i == (x + 2))) && ((j == (x - 4)) || (j == (x + 3)) || (j == x + 1) || (j == x) || (j == (x - 1)) || (j == (x - 2))))
+			if (((i == (x-2)) || (i == (x + 2))) && ((j == (x - 4)) || (j == (x + 3)) || (j == x + 1) || (j == x) || (j == (x - 1)) || (j == (x - 2))))
 			{
 				array[i][j] = ' ';
 			}
@@ -52,7 +53,7 @@ int main()
 	}
 
 	cout << endl << endl;
-
+	//Измененный массив выводим в консоль
 	for (int i = 0; i < amountStars; i++)
 	{
 		for (int j = 0; j < amountStars; j++)
