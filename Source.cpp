@@ -14,7 +14,7 @@ int main()
 	int x = amountStars / 2;
 
 	char array[amountStars][amountStars];
-	// Заполняем массив "пустотой" 
+	// Заполняем массив  
 	for (int i = 0; i < amountStars; i++)
 	{
 		for (int j = 0; j < amountStars; j++)
@@ -42,14 +42,12 @@ int main()
 			}
 		}
 	}
-
 	cout << endl << endl;
 	//Измененный массив выводим в консоль
 	for (int i = 0; i < amountStars; i++)
 	{
 		for (int j = 0; j < amountStars; j++)
 		{
-
 			if (j == (amountStars - 1))
 			{
 				cout << array[i][j] << endl;
