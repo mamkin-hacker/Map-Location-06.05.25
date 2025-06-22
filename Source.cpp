@@ -1,49 +1,98 @@
 #include <iostream>
-#include <locale>
 #include <array>
-#include <Windows.h> // не работает setConsole
+
 using namespace::std;
 
 int main()
 {
-	setlocale(LC_ALL, "RU");
-	SetConsoleOutputCP(1251);
-	SetConsoleCP(1251);
-
-	const int amountStars = 10;
+	const int amountStars = 22;
 	int x = amountStars / 2;
+	int count = 0;
 
 	char array[amountStars][amountStars];
 	// Заполняем массив  
+
 	for (int i = 0; i < amountStars; i++)
 	{
 		for (int j = 0; j < amountStars; j++)
 		{
-			array[i][j] = '*';
-			
-			if ((i == (x - 4)) && ((j != 0) && (j != (amountStars - 1))))
+			array[i][j] = ' ';
+
+		//Нечетное amountStars
+
+			if (amountStars % 2 != 0)
 			{
-				array[i][j] = ' ';
+
+			//Отрисовка
+
+				if (x % 2 == 0)
+				{
+					if (((i <= x && (i % 2 == 0) && (j >= i && j <= (amountStars - 1 - i)))) || ((j <= x && (j % 2 == 0) && (i >= j && i <= (amountStars - 1 - j)))))
+					{
+						array[i][j] = '*';
+					}
+
+					if ((((i >= x && (i % 2 == 0) && (j <= i && j >= (amountStars - 1 - i)))) || (((j >= x) && (j % 2 == 0) && (i <= j && i >= (amountStars - 1 - j))))))
+					{
+						array[i][j] = '*';
+					}
+				}
+				else
+				{
+					if (((i <= x && (i % 2 != 0) && (j >= i && j <= (amountStars - 1 - i)))) || ((j <= (x) && (j % 2 != 0) && (i >= j && i <= (amountStars - 1 - j)))))
+					{
+						array[i][j] = '*';
+					}
+
+					if (((i >= x && (i % 2 != 0) && (j <= i && j >= (amountStars - 1 - i)))) || (((j >= x) && (j % 2 != 0) && (i <= j && i >= (amountStars - 1 - j)))))
+					{
+						array[i][j] = '*';
+					}
+				}
 			}
 
-			if (((i == (x - 3)) || (i == (x + 3))) && ((j == (x - 4)) || (j == (x + 3))))
-			{
-				array[i][j] = ' ';
-			}
+		//Четное amountStars
 
-			if (((i == (x - 2)) || (i == (x + 2))) && ((j == (x - 4)) || (j == (x + 3)) || (j == x + 1) || (j == x) || (j == (x - 1)) || (j == (x - 2))))
+			else
 			{
-				array[i][j] = ' ';
-			}
+			// x/2 == четное значение
 
-			if (((i == (x - 1)) || (i == (x + 1)) || (i == x)) && ((j == (x - 4)) || (j == (x + 1)) || (j == (x + 3)) || (j == x - 2)))
-			{
-				array[i][j] = ' ';
+				if ((x % 2) == 0)
+				{
+			//Отрисовка
+
+					if (((i <= (x - 1) && (i % 2 != 0) && (j >= i && j <= (amountStars - 1 - i)))) || ((j <= (x - 1) && (j % 2 != 0) && (i >= j && i <= (amountStars - 1 - j)))))
+					{
+						array[i][j] = '*';
+					}
+
+					if ((((i >= x) && (i % 2 == 0) && (j <= i && j >= (amountStars - 1 - i)))) || (((j >= x) && (j % 2 == 0) && (i <= j && i >= (amountStars - 1 - j)))))
+					{
+						array[i][j] = '*';
+					}
+
+
+				}
+				else
+			// x/2 == нечетное значение
+				{
+					if (((i <= (x - 1) && (i % 2 == 0) && (j >= i && j <= (amountStars - 1 - i)))) || ((j <= (x - 1) && (j % 2 == 0) && (i >= j && i <= (amountStars - 1 - j)))))
+					{
+						array[i][j] = '*';
+					}
+
+					if ((((i >= x) && (i % 2 != 0) && (j <= i && j >= (amountStars - 1 - i)))) || (((j >= x) && (j % 2 != 0) && (i <= j && i >= (amountStars - 1 - j)))))
+					{
+						array[i][j] = '*';
+					}
+				}
 			}
 		}
 	}
-	cout << endl << endl;
-	//Измененный массив выводим в консоль
+
+	cout << endl;
+
+	//Рисунок - массив выводим в консоль
 	for (int i = 0; i < amountStars; i++)
 	{
 		for (int j = 0; j < amountStars; j++)
